@@ -1,0 +1,84 @@
+{$DEFINE SCRIPT_REVISION := '1'}
+program FightCavesRotationCalculator;
+{------------------------------------------------------------------------
+FightCavesRotationCalculator by Gimpy666
+
+This script will tell you current rotation number that the OSRS TzHaar
+Fight Caves is in.
+
+Rotation information below:
+https://oldschool.runescape.wiki/w/TzHaar_Fight_Cave/Rotations
+
+Tested with:
+o Simba r1400 x64
+
+Instructions:
+o Just run the script
+------------------------------------------------------------------------}
+const
+  ROTATION_CYCLE = 16; // The cycle repeats every 16 minutes
+  SECONDS_PER_MINUTE = 60; // 60
+  SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60; // 3600
+  SECONDS_PER_DAY = SECONDS_PER_HOUR * 24; // 86400
+
+var
+  CurrentUnixTimestamp: Int64; // Variable to hold the Unix timestamp (seconds since epoch UTC)
+  CurrentTotalMinutesUTC: Int64; // Total minutes from epoch UTC
+  CurrentRotation: Integer; // The current rotation number (0-15)
+  RealCurrentRotation: Integer; // The real current rotation number (0-15)
+
+begin
+  // Clear the console
+  ClearDebug();
+
+  // Get current UTC time as Unix timestamp
+  CurrentUnixTimestamp := UnixTime();
+
+  // Calculate total minutes from epoch UTC for the current time
+  CurrentTotalMinutesUTC := CurrentUnixTimestamp div SECONDS_PER_MINUTE;
+
+  // Determine current rotation number
+  // The current rotation is determined by the current minute offset from the epoch (UTC), modulo 16.
+  // This is equivalent to the current minute within the 16-minute cycle relative to UTC midnight.
+  CurrentRotation := CurrentTotalMinutesUTC mod ROTATION_CYCLE;
+
+  // Convert the calculated rotation to the rotation defined on the OSRS Wiki
+  case CurrentRotation of
+    0:
+      RealCurrentRotation := 4;
+    1:
+      RealCurrentRotation := 2;
+    2:
+      RealCurrentRotation := 9;
+    3:
+      RealCurrentRotation := 11;
+    4:
+      RealCurrentRotation := 13;
+    5:
+      RealCurrentRotation := 1;
+    6:
+      RealCurrentRotation := 6;
+    7:
+      RealCurrentRotation := 15;
+    8:
+      RealCurrentRotation := 10;
+    9:
+      RealCurrentRotation := 8;
+    10:
+      RealCurrentRotation := 5;
+    11:
+      RealCurrentRotation := 3;
+    12:
+      RealCurrentRotation := 12;
+    13:
+      RealCurrentRotation := 14;
+    14:
+      RealCurrentRotation := 7;
+    15:
+      RealCurrentRotation := 4;
+  end;
+
+  // Output results to console
+  WriteLn('Current OSRS TzHaar Fight Caves Rotation: ', RealCurrentRotation);
+
+end.
