@@ -44,38 +44,22 @@ begin
 
   // Convert the calculated rotation to the rotation defined on the OSRS Wiki
   case CurrentRotation of
-    0:
-      RealCurrentRotation := 4;
-    1:
-      RealCurrentRotation := 2;
-    2:
-      RealCurrentRotation := 9;
-    3:
-      RealCurrentRotation := 11;
-    4:
-      RealCurrentRotation := 13;
-    5:
-      RealCurrentRotation := 1;
-    6:
-      RealCurrentRotation := 6;
-    7:
-      RealCurrentRotation := 15;
-    8:
-      RealCurrentRotation := 10;
-    9:
-      RealCurrentRotation := 8;
-    10:
-      RealCurrentRotation := 5;
-    11:
-      RealCurrentRotation := 3;
-    12:
-      RealCurrentRotation := 12;
-    13:
-      RealCurrentRotation := 14;
-    14:
-      RealCurrentRotation := 7;
-    15:
-      RealCurrentRotation := 4;
+    0: RealCurrentRotation := 4;
+    1: RealCurrentRotation := 2;
+    2: RealCurrentRotation := 9;
+    3: RealCurrentRotation := 11;
+    4: RealCurrentRotation := 13;
+    5: RealCurrentRotation := 1;
+    6: RealCurrentRotation := 6;
+    7: RealCurrentRotation := 15;
+    8: RealCurrentRotation := 10;
+    9: RealCurrentRotation := 8;
+    10: RealCurrentRotation := 5;
+    11: RealCurrentRotation := 3;
+    12: RealCurrentRotation := 12;
+    13: RealCurrentRotation := 14;
+    14: RealCurrentRotation := 7;
+    15: RealCurrentRotation := 4;
   end;
 
   // Output results to console
